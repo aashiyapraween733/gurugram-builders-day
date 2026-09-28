@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gurugram Builders Day 2026</title>
+  <meta name="description" content="A free one-day meetup in Gurugram for students and early-career developers to build, demo, and meet people. Saturday, 24 October 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbf7f1;
+      --surface: #ffffff;
+      --text: #1d1a16;
+      --muted: #6b6259;
+      --line: #e8dfd3;
+      --accent: #e8590c;
+      --accent-ink: #ffffff;
+      --accent-soft: #fde8d7;
+      --teal: #0f766e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #16130f;
+        --surface: #1f1b16;
+        --text: #f3ede4;
+        --muted: #a89e92;
+        --line: #332c24;
+        --accent: #ff7a2e;
+        --accent-ink: #16130f;
+        --accent-soft: #3a2415;
+        --teal: #2dd4bf;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 Inter, system-ui, sans-serif;
+    }
+    h1, h2, h3 { font-family: "Space Grotesk", Inter, sans-serif; line-height: 1.15; margin: 0; }
+    a { color: inherit; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+    .logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+    nav ul a { text-decoration: none; color: var(--muted); font-weight: 500; }
+    nav ul a:hover { color: var(--text); }
+
+    .hero { padding: 56px 0 72px; }
+    .tag {
+      display: inline-block; background: var(--accent-soft); color: var(--accent);
+      font-weight: 600; font-size: 14px; padding: 6px 12px; border-radius: 999px; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(40px, 8vw, 76px); letter-spacing: -0.02em; max-width: 12ch; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p.lede { font-size: 19px; color: var(--muted); max-width: 56ch; margin: 20px 0 32px; }
+    .facts { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-bottom: 36px; font-weight: 500; }
+    .facts div { display: flex; align-items: center; gap: 8px; }
+    .facts svg { color: var(--teal); flex: none; }
+    .btn {
+      display: inline-block; background: var(--accent); color: var(--accent-ink);
+      font-weight: 600; text-decoration: none; padding: 14px 24px; border-radius: 10px; border: 0;
+      font-size: 16px; cursor: pointer; font-family: inherit;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn.ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); margin-left: 8px; }
+
+    section { padding: 64px 0; border-top: 1px solid var(--line); }
+    section h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 12px; }
+    section > .wrap > p.sub { color: var(--muted); margin: 0 0 36px; max-width: 60ch; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+    .card h3 { font-size: 19px; margin-bottom: 6px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .num { font-family: "Space Grotesk", sans-serif; color: var(--accent); font-weight: 700; font-size: 14px; margin-bottom: 10px; }
+
+    .schedule { list-style: none; margin: 0; padding: 0; }
+    .schedule li {
+      display: grid; grid-template-columns: 120px 1fr; gap: 16px;
+      padding: 18px 0; border-bottom: 1px dashed var(--line);
+    }
+    .schedule time { font-family: "Space Grotesk", sans-serif; font-weight: 700; color: var(--teal); }
+    .schedule strong { display: block; }
+    .schedule span { color: var(--muted); font-size: 15px; }
+
+    .venue { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .venue dl { margin: 0; }
+    .venue dt { font-weight: 600; margin-top: 16px; }
+    .venue dt:first-child { margin-top: 0; }
+    .venue dd { margin: 4px 0 0; color: var(--muted); }
+
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+    summary { font-weight: 600; cursor: pointer; }
+    details p { color: var(--muted); margin: 10px 0 0; }
+
+    form { display: grid; gap: 14px; }
+    label { font-weight: 500; font-size: 15px; display: grid; gap: 6px; }
+    input, select {
+      font: inherit; padding: 12px 14px; border-radius: 10px; border: 1.5px solid var(--line);
+      background: var(--bg); color: var(--text); width: 100%;
+    }
+    input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .thanks { display: none; color: var(--teal); font-weight: 600; }
+
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 720px) {
+      nav ul { display: none; }
+      .venue { grid-template-columns: 1fr; }
+      .schedule li { grid-template-columns: 1fr; gap: 2px; }
+      .btn.ghost { margin: 12px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav>
+      <a class="logo" href="#">GGN<span>/</span>Builders</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#venue">Venue</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div class="tag">Free · 150 seats · Students &amp; early-career devs</div>
+      <h1>Gurugram <em>Builders</em> Day 2026</h1>
+      <p class="lede">One Saturday to ship something small, show it to people who care, and leave with new friends in the Gurugram tech scene. Bring a laptop and an idea. A half-finished side project works too.</p>
+      <div class="facts">
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Saturday, 24 October 2026
+        </div>
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          10:00 AM – 6:00 PM IST
+        </div>
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Sector 44, Gurugram
+        </div>
+      </div>
+      <a class="btn" href="#rsvp">Save my seat</a>
+      <a class="btn ghost" href="#schedule">See the schedule</a>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <h2>What happens on the day</h2>
+        <p class="sub">It isn't a hackathon and nobody wins prizes. It's a relaxed build day where you pair up, get unstuck, and demo whatever you have by the evening.</p>
+        <div class="cards">
+          <div class="card"><div class="num">01</div><h3>Build</h3><p>Five hours of focused making. Work solo or join a table with others working on the same stack.</p></div>
+          <div class="card"><div class="num">02</div><h3>Learn</h3><p>Three short talks on shipping your first web app, using Git and GitHub well, and landing a first internship.</p></div>
+          <div class="card"><div class="num">03</div><h3>Demo</h3><p>Two-minute demos at 4:30 PM. Unfinished is fine. Showing your work is the point.</p></div>
+          <div class="card"><div class="num">04</div><h3>Connect</h3><p>Chai, samosas and mentors from local startups who are there to answer questions, not pitch.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="wrap">
+        <h2>Schedule</h2>
+        <p class="sub">All times are IST. Lunch and evening chai are included.</p>
+        <ul class="schedule">
+          <li><time>10:00 AM</time><div><strong>Check-in &amp; breakfast</strong><span>Grab a badge, find a table, meet your neighbours.</span></div></li>
+          <li><time>10:30 AM</time><div><strong>Kickoff</strong><span>How the day works and a quick round of "what I want to build".</span></div></li>
+          <li><time>11:00 AM</time><div><strong>Talk: From idea to live link in an afternoon</strong><span>Shipping a one-page site with GitHub and Vercel.</span></div></li>
+          <li><time>11:30 AM</time><div><strong>Build block 1</strong><span>Mentors walk the floor. Raise a hand if you're stuck.</span></div></li>
+          <li><time>1:00 PM</time><div><strong>Lunch</strong><span>Veg and non-veg options.</span></div></li>
+          <li><time>2:00 PM</time><div><strong>Talk: Git without fear</strong><span>Branches, commits and pull requests, explained with real mistakes.</span></div></li>
+          <li><time>2:30 PM</time><div><strong>Build block 2</strong><span>Push to finish something demo-able.</span></div></li>
+          <li><time>4:30 PM</time><div><strong>Demos</strong><span>Two minutes each, with a laptop on the projector.</span></div></li>
+          <li><time>5:30 PM</time><div><strong>Talk &amp; chai: Your first internship</strong><span>A panel with early-career engineers from Gurugram startups.</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="venue">
+      <div class="wrap venue">
+        <div>
+          <h2>Getting there</h2>
+          <p class="sub" style="margin-top:12px">It's a short auto ride from Millennium City Centre, the last stop on the Delhi Metro Yellow Line.</p>
+        </div>
+        <dl>
+          <dt>Venue</dt>
+          <dd>Community Hall, Sector 44, Gurugram, Haryana 122003</dd>
+          <dt>By metro</dt>
+          <dd>Millennium City Centre Gurugram station, then about a 10-minute auto ride</dd>
+          <dt>Parking</dt>
+          <dd>Limited two-wheeler parking on site. Please carpool or take the metro.</dd>
+          <dt>Accessibility</dt>
+          <dd>Step-free entry and an accessible restroom on the ground floor.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <h2>FAQ</h2>
+        <p class="sub">Quick answers before you sign up.</p>
+        <details><summary>Is it really free?</summary><p>Yes. Food and chai are covered, and you don't pay anything to register or attend.</p></details>
+        <details><summary>I'm a complete beginner. Can I come?</summary><p>Please do. The whole day is designed so you can build your first website, and mentors are there to help.</p></details>
+        <details><summary>What should I bring?</summary><p>A laptop, a charger, and a college or government photo ID for check-in.</p></details>
+        <details><summary>Do I need a team?</summary><p>No. Most people come alone and find a table at kickoff.</p></details>
+      </div>
+    </section>
+
+    <section id="rsvp">
+      <div class="wrap venue">
+        <div>
+          <h2>Save your seat</h2>
+          <p class="sub" style="margin-top:12px">There are 150 seats, given out first come, first served. We'll confirm your spot by email a week before the event.</p>
+        </div>
+        <form id="rsvp-form">
+          <label>Full name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>I am a…
+            <select name="role">
+              <option>College student</option>
+              <option>Recent graduate</option>
+              <option>Working developer</option>
+              <option>Just curious</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Register for free</button>
+          <p class="thanks" id="thanks">You're on the list. See you on 24 October!</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Gurugram Builders Day 2026 · A community-run meetup in Gurugram, Haryana</div>
+  </footer>
+
+  <script>
+    // Demo form: there is no backend yet, so this only shows a confirmation message.
+    document.getElementById('rsvp-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('thanks').style.display = 'block';
+      this.querySelector('button').disabled = true;
+    });
+  </script>
+</body>
+</html>
